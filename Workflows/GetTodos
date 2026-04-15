@@ -1,0 +1,301 @@
+{
+  "id": "GetTodos",
+  "name": "GetTodos",
+  "workflowName": "GetTodos",
+  "itemType": "workflow",
+  "appId": "QTIrDPVzojjvDJCVBYaUL",
+  "folderId": "hzPuhWhVpdtgvNfoKdCxI",
+  "type": "ORCHESTRATION",
+  "version": "0.0.1",
+  "steps": [
+    {
+      "id": "BnVQPPISwoZzcuKyzpKGA",
+      "stepName": "RESTService",
+      "stepType": "EVENT_SOURCE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTService",
+        "activityGroup": "HTTP",
+        "activityType": "EVENT_SOURCE",
+        "name": "RESTService",
+        "description": "",
+        "sourceSchemas": [],
+        "path": "/todos",
+        "method": [
+          "GET"
+        ],
+        "allowedMediaTypes": [
+          "application/json"
+        ],
+        "headers": [],
+        "queryParams": [],
+        "pathParams": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "uyfiAtDRuZUwrZSApCSjM",
+      "stepName": "GetTodos",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "RESTClient",
+        "activityGroup": "HTTP",
+        "activityType": "SIMPLE",
+        "name": "GetTodos",
+        "description": "",
+        "sourceSchemas": [
+          "BnVQPPISwoZzcuKyzpKGA"
+        ],
+        "scheme": "HTTPS",
+        "host": "jsonplaceholder.typicode.com",
+        "uri": "/todos",
+        "method": "GET",
+        "authType": "NO_AUTH",
+        "timeout": 15000,
+        "isOutputAnonymousArray": true,
+        "output": "AIciANbfyTaHZiBKoynGI",
+        "headers": [],
+        "queryParams": [],
+        "pathParams": []
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "UQODlYnDsuQCurcPVImJA",
+      "stepName": "GenerateError",
+      "stepType": "SIMPLE",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "GenerateError",
+        "activityGroup": "Common",
+        "activityType": "SIMPLE",
+        "name": "GenerateError",
+        "description": "",
+        "sourceSchemas": [
+          "uyfiAtDRuZUwrZSApCSjM"
+        ]
+      },
+      "activityCluster": null
+    },
+    {
+      "id": "JuYOnFhfeNqJAFhNLVakd",
+      "stepName": "End",
+      "stepType": "END",
+      "icon": "",
+      "indicator": "",
+      "description": "",
+      "deletable": true,
+      "config": {
+        "activityName": "End",
+        "activityGroup": "Common",
+        "activityType": "END",
+        "name": "End",
+        "description": "",
+        "sourceSchemas": [
+          "uyfiAtDRuZUwrZSApCSjM",
+          "UQODlYnDsuQCurcPVImJA"
+        ],
+        "targetSchema": "AIciANbfyTaHZiBKoynGI"
+      },
+      "activityCluster": null
+    }
+  ],
+  "transitions": [
+    {
+      "id": "nRwPaOKPvuIHjhFwSBIym",
+      "from": "BnVQPPISwoZzcuKyzpKGA",
+      "to": "uyfiAtDRuZUwrZSApCSjM",
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "handleMap": {
+        "source": "BnVQPPISwoZzcuKyzpKGA_1",
+        "target": "uyfiAtDRuZUwrZSApCSjM_1"
+      }
+    },
+    {
+      "id": "BqHpRIgugEiESCquUimND",
+      "from": "uyfiAtDRuZUwrZSApCSjM",
+      "to": "JuYOnFhfeNqJAFhNLVakd",
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "handleMap": {
+        "source": "uyfiAtDRuZUwrZSApCSjM_2",
+        "target": "JuYOnFhfeNqJAFhNLVakd_1"
+      }
+    },
+    {
+      "id": "MOIEUaMDIONgMktpCGpaF",
+      "from": "uyfiAtDRuZUwrZSApCSjM",
+      "to": "UQODlYnDsuQCurcPVImJA",
+      "name": "",
+      "description": "",
+      "type": "ERROR",
+      "lineType": "step",
+      "lineColor": "#ff7875",
+      "handleMap": {
+        "source": "uyfiAtDRuZUwrZSApCSjM_2",
+        "target": "UQODlYnDsuQCurcPVImJA_1"
+      }
+    },
+    {
+      "id": "hiVGNLIONOypBOIqIobwb",
+      "from": "UQODlYnDsuQCurcPVImJA",
+      "to": "JuYOnFhfeNqJAFhNLVakd",
+      "name": "",
+      "description": "",
+      "type": "DEFAULT",
+      "lineType": "step",
+      "lineColor": "#8c8c8c",
+      "handleMap": {
+        "source": "UQODlYnDsuQCurcPVImJA_2",
+        "target": "JuYOnFhfeNqJAFhNLVakd_1"
+      }
+    }
+  ],
+  "diagram": {
+    "BnVQPPISwoZzcuKyzpKGA": {
+      "x": 60,
+      "y": 60,
+      "handles": [
+        {
+          "type": "source",
+          "position": "right",
+          "id": "BnVQPPISwoZzcuKyzpKGA_1"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": null
+    },
+    "uyfiAtDRuZUwrZSApCSjM": {
+      "x": 360,
+      "y": 60,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "uyfiAtDRuZUwrZSApCSjM_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "uyfiAtDRuZUwrZSApCSjM_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "UQODlYnDsuQCurcPVImJA": {
+      "x": 660,
+      "y": 60,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "UQODlYnDsuQCurcPVImJA_1"
+        },
+        {
+          "type": "source",
+          "position": "right",
+          "id": "UQODlYnDsuQCurcPVImJA_2"
+        }
+      ],
+      "sourcePosition": "right",
+      "targetPosition": "left"
+    },
+    "JuYOnFhfeNqJAFhNLVakd": {
+      "x": 960,
+      "y": 60,
+      "handles": [
+        {
+          "type": "target",
+          "position": "left",
+          "id": "JuYOnFhfeNqJAFhNLVakd_1"
+        }
+      ],
+      "sourcePosition": null,
+      "targetPosition": "left"
+    }
+  },
+  "mappings": {
+    "uyfiAtDRuZUwrZSApCSjM": {
+      "metaInfo": {
+        "id": "uyfiAtDRuZUwrZSApCSjM",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GetTodos",
+        "description": ""
+      },
+      "mappings": {
+        "GetTodos": {
+          "headers": {},
+          "queryParams": {},
+          "pathParams": {}
+        }
+      },
+      "attributes": {}
+    },
+    "UQODlYnDsuQCurcPVImJA": {
+      "metaInfo": {
+        "id": "UQODlYnDsuQCurcPVImJA",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "GenerateError",
+        "description": ""
+      },
+      "mappings": {
+        "GenerateError": {
+          "errorCode": "$.error.errorCode",
+          "errorMessage": "$.error.errorMsg",
+          "details": {
+            "#copyOf": "$.error.errorDetails"
+          }
+        }
+      },
+      "attributes": {}
+    },
+    "JuYOnFhfeNqJAFhNLVakd": {
+      "metaInfo": {
+        "id": "JuYOnFhfeNqJAFhNLVakd",
+        "versionInfo": {
+          "version": "1.0.0"
+        },
+        "name": "End",
+        "description": ""
+      },
+      "mappings": {
+        "End": {
+          "body": {
+            "#copyOf": "$.GetTodos.httpResponse.body"
+          }
+        }
+      },
+      "attributes": {}
+    }
+  },
+  "notes": [],
+  "config": {
+    "name": "GetTodos",
+    "description": "Calls JSONPlaceholder /todos API and returns the response",
+    "workflowAttributes": [],
+    "context": "{}",
+    "errorConfig": []
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "AIciANbfyTaHZiBKoynGI",
+  "name": "TodosResponse",
+  "appId": "QTIrDPVzojjvDJCVBYaUL",
+  "folderId": "gjlSmUQRDvHySqeYiPqFU",
+  "content": {
+    "type": "json-schema",
+    "destination": "source",
+    "content": {
+      "$schema": "https://json-schema.org/draft-07/schema",
+      "title": "TodosResponse",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "userId",
+          "id",
+          "title",
+          "completed"
+        ]
+      }
+    },
+    "name": "TodosResponse",
+    "schemaSource": "file"
+  },
+  "itemType": "appSchemas",
+  "gitEnabled": true,
+  "children": []
+}
